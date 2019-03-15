@@ -1,0 +1,24 @@
+diff --git a/.env b/.env
+index 6c031a4..a11838e 100644
+--- a/.env
++++ b/.env
+@@ -16,7 +16,7 @@ APP_SECRET=c3d905a629663f13648b90244a3c35a3
+ ###< symfony/messenger ###
+ 
+ ###> enqueue/enqueue-bundle ###
+-ENQUEUE_DSN=mysql://root:@127.0.0.1:3306/messenger_play
++#ENQUEUE_DSN=mysql://root:@127.0.0.1:3306/messenger_play
+ ###< enqueue/enqueue-bundle ###
+ 
+ ###> doctrine/doctrine-bundle ###
+diff --git a/config/packages/enqueue.yaml b/config/packages/enqueue.yaml
+index 9a15044..c35ae36 100644
+--- a/config/packages/enqueue.yaml
++++ b/config/packages/enqueue.yaml
+@@ -1,4 +1,5 @@
+ enqueue:
+     default:
+-        transport: '%env(ENQUEUE_DSN)%'
++        #transport: '%env(ENQUEUE_DSN)%'
++        transport: '%env(resolve:DATABASE_URL)%'
+         client: ~

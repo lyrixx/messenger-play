@@ -1,0 +1,12 @@
+diff --git a/src/MessageHandler/SmsNotificationHandler.php b/src/MessageHandler/SmsNotificationHandler.php
+index 8c340cf..0e15ae4 100644
+--- a/src/MessageHandler/SmsNotificationHandler.php
++++ b/src/MessageHandler/SmsNotificationHandler.php
+@@ -17,6 +17,7 @@ class SmsNotificationHandler implements MessageHandlerInterface
+ 
+     public function __invoke(SmsNotification $notification)
+     {
++        throw new \Exception('I sploded!');
+         $this->logger->info($notification->getContent());
+     }
+ }

@@ -1,0 +1,17 @@
+diff --git a/config/packages/messenger.yaml b/config/packages/messenger.yaml
+index c807898..b280e15 100644
+--- a/config/packages/messenger.yaml
++++ b/config/packages/messenger.yaml
+@@ -1,9 +1,9 @@
+ framework:
+     messenger:
+         transports:
+-            # Uncomment the following line to enable a transport named "amqp"
+-            # amqp: '%env(MESSENGER_TRANSPORT_DSN)%'
++            # Use the enqueue transport
++            async: 'enqueue://default'
+ 
+         routing:
+             # Route your messages to the transports
+-            # 'App\Message\YourMessage': amqp
++            'App\Message\SmsNotification': async

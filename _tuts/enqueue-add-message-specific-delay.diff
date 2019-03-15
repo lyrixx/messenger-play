@@ -1,0 +1,31 @@
+diff --git a/src/Controller/DefaultController.php b/src/Controller/DefaultController.php
+index d71bc70..1be5484 100644
+--- a/src/Controller/DefaultController.php
++++ b/src/Controller/DefaultController.php
+@@ -3,7 +3,9 @@
+ namespace App\Controller;
+ 
+ use App\Message\SmsNotification;
++use Enqueue\MessengerAdapter\EnvelopeItem\TransportConfiguration;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\Messenger\Envelope;
+ use Symfony\Component\Messenger\MessageBusInterface;
+ use Symfony\Component\Routing\Annotation\Route;
+ 
+@@ -14,8 +16,14 @@ class DefaultController extends AbstractController
+      */
+     public function index(MessageBusInterface $bus)
+     {
+-        $message = new SmsNotification('THE CONTENT!');
+-        $bus->dispatch($message);
++        $message = new SmsNotification('First message!');
++
++        $transportConfig = (new TransportConfiguration())
++            ->setDeliveryDelay(10000)
++        ;
++        $bus->dispatch((new Envelope($message))->with($transportConfig));
++
++        $bus->dispatch(new SmsNotification('Second message'));
+ 
+         return $this->json(['test' => true]);
+     }

@@ -1,0 +1,26 @@
+diff --git a/.env b/.env
+index 6a31756..6c031a4 100644
+--- a/.env
++++ b/.env
+@@ -16,7 +16,7 @@ APP_SECRET=c3d905a629663f13648b90244a3c35a3
+ ###< symfony/messenger ###
+ 
+ ###> enqueue/enqueue-bundle ###
+-ENQUEUE_DSN=null://
++ENQUEUE_DSN=mysql://root:@127.0.0.1:3306/messenger_play
+ ###< enqueue/enqueue-bundle ###
+ 
+ ###> doctrine/doctrine-bundle ###
+diff --git a/config/packages/doctrine.yaml b/config/packages/doctrine.yaml
+index 9521fad..1e1fb48 100644
+--- a/config/packages/doctrine.yaml
++++ b/config/packages/doctrine.yaml
+@@ -16,6 +16,8 @@ doctrine:
+             collate: utf8mb4_unicode_ci
+ 
+         url: '%env(resolve:DATABASE_URL)%'
++        # match everything except for "enqueue" exactly
++        schema_filter: '/^(?!enqueue).*$/'
+     orm:
+         auto_generate_proxy_classes: true
+         naming_strategy: doctrine.orm.naming_strategy.underscore

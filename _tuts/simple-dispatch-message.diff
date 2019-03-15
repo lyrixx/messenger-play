@@ -1,0 +1,27 @@
+diff --git a/src/Controller/DefaultController.php b/src/Controller/DefaultController.php
+index 9557065..d71bc70 100644
+--- a/src/Controller/DefaultController.php
++++ b/src/Controller/DefaultController.php
+@@ -2,7 +2,9 @@
+ 
+ namespace App\Controller;
+ 
++use App\Message\SmsNotification;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\Messenger\MessageBusInterface;
+ use Symfony\Component\Routing\Annotation\Route;
+ 
+ class DefaultController extends AbstractController
+@@ -10,8 +12,11 @@ class DefaultController extends AbstractController
+     /**
+      * @Route("/")
+      */
+-    public function index()
++    public function index(MessageBusInterface $bus)
+     {
++        $message = new SmsNotification('THE CONTENT!');
++        $bus->dispatch($message);
++
+         return $this->json(['test' => true]);
+     }
+ }
