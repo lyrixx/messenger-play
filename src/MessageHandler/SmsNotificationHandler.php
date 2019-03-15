@@ -17,6 +17,7 @@ class SmsNotificationHandler implements MessageHandlerInterface
 
     public function __invoke(SmsNotification $notification)
     {
+        throw new \Exception('I sploded!');
         $this->logger->info($notification->getContent());
     }
 }
