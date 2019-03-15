@@ -1,8 +1,13 @@
 framework:
     messenger:
+        default_bus: bus1
+        buses:
+            bus1: ~
+            bus2: ~
+
         transports:
             # Use the enqueue transport
-            async: 'enqueue://default?deliveryDelay=5000'
+            async: 'amqp://user:pass@localhost/messages'
 
         routing:
             # Route your messages to the transports

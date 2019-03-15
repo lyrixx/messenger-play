@@ -16,7 +16,7 @@ class DefaultController extends AbstractController
      */
     public function index(MessageBusInterface $bus)
     {
-        $message = new SmsNotification('First message!');
+        $message = new SmsNotification('First SMS Notification!');
 
 //        $transportConfig = (new TransportConfiguration())
 //            ->setDeliveryDelay(10000)
@@ -24,7 +24,7 @@ class DefaultController extends AbstractController
         //$bus->dispatch((new Envelope($message))->with($transportConfig));
         $bus->dispatch((new Envelope($message)));
 
-        $bus->dispatch(new SmsNotification('Second message'));
+        //$bus->dispatch(new SmsNotification('Second message'));
 
         return $this->json(['test' => true]);
     }
