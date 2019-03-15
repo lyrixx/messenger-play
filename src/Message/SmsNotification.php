@@ -10,4 +10,9 @@ class SmsNotification
     {
         $this->content = $content;
     }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
 }
