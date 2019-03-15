@@ -77,6 +77,15 @@
     "enqueue/amqp-tools": {
         "version": "0.9.4"
     },
+    "enqueue/dbal": {
+        "version": "0.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.8",
+            "ref": "7b05df4d7e97874f719baa645ab8b6aafe203f9b"
+        }
+    },
     "enqueue/dsn": {
         "version": "0.9.2"
     },

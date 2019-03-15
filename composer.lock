@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd8b1f26f01c179ec2e703e1e6466289",
+    "content-hash": "f9f7b60594b413e0557399fe0f6b5880",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1229,6 +1229,60 @@
                 "queue"
             ],
             "time": "2018-12-18T18:27:30+00:00"
+        },
+        {
+            "name": "enqueue/dbal",
+            "version": "0.9.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-enqueue/dbal.git",
+                "reference": "f390c2ff4cf7ce8e82f9b4e8f316dbe04dc341a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-enqueue/dbal/zipball/f390c2ff4cf7ce8e82f9b4e8f316dbe04dc341a5",
+                "reference": "f390c2ff4cf7ce8e82f9b4e8f316dbe04dc341a5",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.6",
+                "php": "^7.1.3",
+                "queue-interop/queue-interop": "^0.7|^0.8",
+                "ramsey/uuid": "^3"
+            },
+            "require-dev": {
+                "enqueue/null": "0.9.x-dev",
+                "enqueue/test": "0.9.x-dev",
+                "phpunit/phpunit": "~5.4.0",
+                "queue-interop/queue-spec": "^0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Enqueue\\Dbal\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Message Queue Doctrine DBAL Transport",
+            "homepage": "https://enqueue.forma-pro.com/",
+            "keywords": [
+                "dbal",
+                "doctrine",
+                "messaging",
+                "queue"
+            ],
+            "time": "2018-12-21T14:09:35+00:00"
         },
         {
             "name": "enqueue/dsn",
