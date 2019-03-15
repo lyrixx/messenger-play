@@ -18,10 +18,11 @@ class DefaultController extends AbstractController
     {
         $message = new SmsNotification('First message!');
 
-        $transportConfig = (new TransportConfiguration())
-            ->setDeliveryDelay(10000)
-        ;
-        $bus->dispatch((new Envelope($message))->with($transportConfig));
+//        $transportConfig = (new TransportConfiguration())
+//            ->setDeliveryDelay(10000)
+//        ;
+        //$bus->dispatch((new Envelope($message))->with($transportConfig));
+        $bus->dispatch((new Envelope($message)));
 
         $bus->dispatch(new SmsNotification('Second message'));
 
