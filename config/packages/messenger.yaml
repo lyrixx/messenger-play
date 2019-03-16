@@ -7,7 +7,7 @@ framework:
 
         transports:
             # Use the enqueue transport
-            async: 'amqp://user:pass@localhost/messages'
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
 
         routing:
             # Route your messages to the transports

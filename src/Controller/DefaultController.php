@@ -22,7 +22,7 @@ class DefaultController extends AbstractController
 //            ->setDeliveryDelay(10000)
 //        ;
         //$bus->dispatch((new Envelope($message))->with($transportConfig));
-        $bus->dispatch((new Envelope($message)));
+        $bus->dispatch(new Envelope($message));
 
         //$bus->dispatch(new SmsNotification('Second message'));
 
